@@ -29,28 +29,52 @@ const productsArr = [
 
 const Music = () => {
   return (
-    <Container className=" justify-content-between">
-      <h1 className="d-grid justify-content-center">Music</h1>
-      <Row md="auto" className="d-grid justify-content-center">
-        <ListGroup as="ul">
-          {productsArr.map((product) => (
-            <ListGroup.Item as="li">
-              <Card style={{ width: "25rem" }}>
-                <Card.Header>{product.title}</Card.Header>
-                <Card.Body>
-                  <img src={product.imageUrl} alt=" information" />
-                  <Card.Text>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ullam et quos pariatur ducimus sapiente corporis sunt iusto
-                    eligendi hic asperiores.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
+    <React.Fragment>
+      <Row md={1} className="d-grid justify-content-center">
+        <h1>Music</h1>
       </Row>
-    </Container>
+      <Row md={2} className="offset-2">
+        {productsArr.map((product) => (
+          <Col>
+            <Card className="mb-3" style={{ width: "25rem" }}>
+              <Card.Header>{product.title}</Card.Header>
+
+              <Card.Body>
+                <img src={product.imageUrl} alt=" information" />
+                <Card.Text>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+                  et quos pariatur ducimus sapiente corporis sunt iusto eligendi
+                  hic asperiores.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </React.Fragment>
+
+    // <Container className=" justify-content-between">
+    //   <h1 className="d-grid justify-content-center">Music</h1>
+    //   <Row md="auto" className="d-grid justify-content-center">
+    //     <ListGroup as="ul">
+    //       {productsArr.map((product) => (
+    //         <ListGroup.Item as="li">
+    //           <Card style={{ width: "25rem" }}>
+    //             <Card.Header>{product.title}</Card.Header>
+    //             <Card.Body>
+    //               <img src={product.imageUrl} alt=" information" />
+    //               <Card.Text>
+    //                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    //                 Ullam et quos pariatur ducimus sapiente corporis sunt iusto
+    //                 eligendi hic asperiores.
+    //               </Card.Text>
+    //             </Card.Body>
+    //           </Card>
+    //         </ListGroup.Item>
+    //       ))}
+    //     </ListGroup>
+    //   </Row>
+    // </Container>
   );
 };
 
