@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
 import { Badge, Button, Nav, Navbar } from "react-bootstrap";
+import cartVisContext from "../store/cart -visibility/Cartvisibility-context";
 
 const Header = () => {
+  const cartVis = useContext(cartVisContext);
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark" className="justify-content-center mb-3">
@@ -12,7 +15,12 @@ const Header = () => {
           <Nav.Link href="#">About</Nav.Link>
         </Nav>
 
-        <Button className="ms-auto" position="end" variant="info">
+        <Button
+          className="ms-auto"
+          position="end"
+          variant="info"
+          onClick={cartVis.toggleCart}
+        >
           Cart
         </Button>
         <sup className="me-5">

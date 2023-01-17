@@ -1,27 +1,31 @@
 import React from "react";
-import { Card, Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Button, Card, Col, Row } from "react-bootstrap";
 
 const productsArr = [
   {
-    title: "Colors",
+    id: "01",
+    title: "Thriller",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
   },
 
   {
-    title: "Black and white Colors",
+    id: "02",
+    title: "Hotel California",
     price: 50,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
   },
 
   {
-    title: "Yellow and Black Colors",
+    id: "03",
+    title: "Saturday Night Fever",
     price: 70,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
   },
 
   {
-    title: "Blue Color",
+    id: "04",
+    title: "The Dark Side of the Moon",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
   },
@@ -35,8 +39,8 @@ const Music = () => {
       </Row>
       <Row md={2} className="offset-2">
         {productsArr.map((product) => (
-          <Col>
-            <Card className="mb-3" style={{ width: "25rem" }}>
+          <Col key={product.id}>
+            <Card className="mb-3" style={{ width: "25rem" }} bg="light">
               <Card.Header>{product.title}</Card.Header>
 
               <Card.Body>
@@ -47,6 +51,7 @@ const Music = () => {
                   hic asperiores.
                 </Card.Text>
               </Card.Body>
+              <Button variant="primary">Add to Cart</Button>
             </Card>
           </Col>
         ))}
