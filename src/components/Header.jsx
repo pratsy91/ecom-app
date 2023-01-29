@@ -29,6 +29,12 @@ const Header = () => {
           <NavLink className="me-3 text-decoration-none text-white" to="/about">
             About
           </NavLink>
+          <NavLink
+            className="me-3 text-decoration-none text-white"
+            to="/contact-us"
+          >
+            Contact Us
+          </NavLink>
         </Nav>
 
         <Button

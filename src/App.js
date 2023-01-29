@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Store from "./pages/store";
 import Root from "./pages/Root";
 import About from "./pages/About";
+import ContactUs from "./pages/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/store", element: <Store /> },
       { path: "/about", element: <About /> },
+      { path: "/contact-us", element: <ContactUs /> },
     ],
   },
 ]);
