@@ -1,41 +1,55 @@
-import React from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Badge, Button, Card, Col, Row } from "react-bootstrap";
+import cartContext from "../store/Cart-context/cart-context";
 
 const productsArr = [
   {
-    id: "01",
+    id: "e1",
     title: "Thriller",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
   },
 
   {
-    id: "02",
+    id: "e2",
     title: "Hotel California",
     price: 50,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
   },
 
   {
-    id: "03",
+    id: "e3",
     title: "Saturday Night Fever",
     price: 70,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
   },
 
   {
-    id: "04",
+    id: "e4",
     title: "The Dark Side of the Moon",
-    price: 100,
+    price: 90,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
   },
 ];
 
 const Music = () => {
+  const cartCtx = useContext(cartContext);
+
+  const addHandler = (product) => {
+    cartCtx.addItem({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      imageUrl: product.imageUrl,
+    });
+  };
+
   return (
     <React.Fragment>
-      <Row md={1} className="d-grid justify-content-center">
-        <h1>Music</h1>
+      <Row md={1} className="d-grid justify-content-center mt-5">
+        <h1 className="my-5">
+          <Badge bg="secondary">Music Store</Badge>
+        </h1>
       </Row>
       <Row md={2} className="offset-2">
         {productsArr.map((product) => (
@@ -46,12 +60,23 @@ const Music = () => {
               <Card.Body>
                 <img src={product.imageUrl} alt=" information" />
                 <Card.Text>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-                  et quos pariatur ducimus sapiente corporis sunt iusto eligendi
-                  hic asperiores.
+                  Lorem ipsum dolor sit ameprt consectetur adipisicing elit.
+                  Ullam et quos pariatur ducimus sapiente corporis sunt iusto
+                  eligendi hic asperiores.
                 </Card.Text>
               </Card.Body>
-              <Button variant="primary">Add to Cart</Button>
+              <Card.Footer className="d-flex d-row justify-content-between">
+                <h3>
+                  <Badge bg="info">{`$ ${product.price}`}</Badge>
+                </h3>
+
+                <Button
+                  variant="primary"
+                  onClick={addHandler.bind(null, product)}
+                >
+                  Add to Cart
+                </Button>
+              </Card.Footer>
             </Card>
           </Col>
         ))}
