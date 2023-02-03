@@ -1,17 +1,13 @@
 import "./App.css";
 import React from "react";
-import CartVisContextProvider from "./store/cart -visibility/CartVisProvider";
-import CanvasCart from "./components/CanvasCart";
 
-import Header from "./components/Header";
-import Music from "./components/Music";
-import CartContextProvider from "./store/Cart-context/CartContextProvider";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Store from "./pages/store";
 import Root from "./pages/Root";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
+import Authentication from "./pages/Authentication";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +18,7 @@ const router = createBrowserRouter([
       { path: "/store", element: <Store /> },
       { path: "/about", element: <About /> },
       { path: "/contact-us", element: <ContactUs /> },
+      { path: "/auth", element: <Authentication /> },
     ],
   },
 ]);

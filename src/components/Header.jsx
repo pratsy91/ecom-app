@@ -37,6 +37,13 @@ const Header = () => {
           </NavLink>
         </Nav>
 
+        <NavLink
+          className="me-3 text-decoration-none text-white"
+          to="/auth?mode=login"
+        >
+          Authentication
+        </NavLink>
+
         <Button
           className="ms-auto"
           position="end"
