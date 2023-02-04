@@ -1,10 +1,13 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { Button, Container, Card, Form } from "react-bootstrap";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import AuthContext from "../store/auth-context";
 
 const Authentication = () => {
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get("mode") === "login";
+  const navigate = useNavigate();
+  const authCtx = useContext(AuthContext);
 
   const emailRef = useRef();
   const passRef = useRef();
@@ -33,6 +36,24 @@ const Authentication = () => {
       headers: {
         "Content-Type": "application/json",
       },
+    }).then((res) => {
+      if (res.ok) {
+        // alert("success");
+        if (searchParams.get("mode") === "login") {
+          res.json().then((data) => {
+            const token = data.idToken;
+            authCtx.login(token);
+          });
+
+          navigate("/store");
+        } else {
+          navigate("/auth/?mode=login");
+        }
+      } else {
+        return res.json().then((data) => {
+          alert(data.error.message);
+        });
+      }
     });
   };
 

@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Badge,
-  Button,
-  Col,
-  ListGroup,
-  ListGroupItem,
-  Row,
-} from "react-bootstrap";
+import { Badge, Button, ListGroup, Row } from "react-bootstrap";
 
 const Dummy_Tours = [
   {
@@ -48,6 +41,9 @@ const Dummy_Tours = [
 ];
 
 const Home = () => {
+  const ticketHandler = () => {
+    alert("Boooked Successfully");
+  };
   return (
     <React.Fragment>
       <h1 className="text-center" style={{ marginTop: "80px" }}>
@@ -67,7 +63,9 @@ const Home = () => {
                 <span>{tour.city}</span>
                 <span>{tour.place}</span>
                 <span>
-                  <Button variant="primary">Buy Tickets</Button>
+                  <Button variant="primary" onClick={ticketHandler}>
+                    Buy Tickets
+                  </Button>
                 </span>
               </ListGroup.Item>
             ))}
