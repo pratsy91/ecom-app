@@ -44,7 +44,7 @@ const Authentication = () => {
             const token = data.idToken;
             authCtx.login(token);
           });
-
+          localStorage.setItem("email", enteredEmail);
           navigate("/store");
         } else {
           navigate("/auth/?mode=login");

@@ -13,8 +13,23 @@ const Header = () => {
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const brandHandler = () => {
+    if (authCtx.isLoggedIn) {
+      navigate("/about");
+    } else {
+      navigate("/auth?mode=login");
+    }
+  };
+
   const logoutHandler = () => {
     authCtx.logout();
+    const email = localStorage.getItem("email");
+    let url =
+      "https://crudcrud.com/api/bbb1888023a3487a9a12cd3c9884ba78/" + email;
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(cartCtx),
+    });
     navigate("/auth?mode=login");
   };
 
@@ -26,7 +41,14 @@ const Header = () => {
         className="justify-content-center mb-3"
         fixed="top"
       >
-        <Navbar.Brand className="me-auto ms-5">The Generics</Navbar.Brand>
+        <Navbar.Brand
+          className="me-auto ms-5"
+          onClick={brandHandler}
+          style={{ cursor: "pointer" }}
+        >
+          The Generics
+        </Navbar.Brand>
+
         {authCtx.isLoggedIn && (
           <Nav>
             <NavLink
@@ -45,7 +67,7 @@ const Header = () => {
               className="me-3 text-decoration-none text-white"
               to="/about"
             >
-              About
+              About Us
             </NavLink>
             <NavLink
               className="me-3 text-decoration-none text-white"

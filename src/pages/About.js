@@ -1,17 +1,18 @@
 import React from "react";
-import { Badge, Col, Row } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import bandImage from "../assets/Band-Members.png";
 
 const About = () => {
   return (
     <React.Fragment>
       <h1 className="text-center" style={{ marginTop: "100px" }}>
-        <Badge bg="secondary"> About</Badge>
+        <Badge bg="secondary"> About Us</Badge>
       </h1>
       <div style={{ marginTop: "100px" }}>
         <img
           className=" float-start ms-5 rounded-circle me-3"
-          src="https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png"
+          src={bandImage}
+          alt="band"
           style={{ width: "200px" }}
         />
 

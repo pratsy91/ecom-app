@@ -1,11 +1,21 @@
 import React, { useContext } from "react";
 import { Button, Container, ListGroupItem, Offcanvas } from "react-bootstrap";
+import AuthContext from "../store/auth-context";
 import cartVisContext from "../store/cart -visibility/Cartvisibility-context";
 import cartContext from "../store/Cart-context/cart-context";
 
 const CanvasCart = () => {
   const cartVis = useContext(cartVisContext);
   const cartCtx = useContext(cartContext);
+
+  const authCtx = useContext(AuthContext);
+
+  if (authCtx.isLoggedIn) {
+    const email = localStorage.getItem("email");
+    let url =
+      "https://crudcrud.com/api/bbb1888023a3487a9a12cd3c9884ba78/" + email;
+    fetch(url).then((res) => console.log(res));
+  }
 
   const deleteHandler = (id) => {
     cartCtx.deleteItem(id);
